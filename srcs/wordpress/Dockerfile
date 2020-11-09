@@ -11,6 +11,7 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY supervisor.conf /etc/supervisord.conf
 COPY wp-config.php /www/
 COPY install.sh start.sh
+# COPY wordpress.sql ./var/www/your_domain/
 RUN chmod u+x start.sh
 
 EXPOSE 5050

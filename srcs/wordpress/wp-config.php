@@ -18,6 +18,7 @@
  * @package WordPress
  */
 
+define( 'CONCATENATE_SCRIPTS', false );
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define( 'DB_NAME', 'wordpress' );
@@ -30,8 +31,8 @@ define( 'DB_PASSWORD', 'root' );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'cip-mysql:3306' );
-define( 'WP_HOME', 'http://192.168.99.102:5050/' ); # EXTERNAL IP
-define( 'WP_SITEURL', 'http://192.168.99.102:5050/' ); # EXTERNAL IP
+define( 'WP_HOME', 'http://192.168.99.101:5050/' ); # EXTERNAL IP
+define( 'WP_SITEURL', 'http://192.168.99.101:5050/' ); # EXTERNAL IP
 
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
@@ -50,14 +51,14 @@ define('FS_METHOD', 'direct');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'V&NdS_vnln@+kPA|,vvS%13bX*1ft%H`dzQ2XS+krOA^Kk2;VPRZC?:vE$kup(ic');
-define('SECURE_AUTH_KEY',  'yA!^KK7_uTUl(DL00Q6;lXzhSf:1OpK_#R{-Y=~^*?r,0*Y~g7%d6(juQpMPTffm');
-define('LOGGED_IN_KEY',    '?ugXNQ|xq=305bXn</b<:ZT073e{opp^VX7TxE9oMTS$d;;-S~JeaD|usa*2Vqqr');
-define('NONCE_KEY',        'vK1X{}/$.]A|$LSLj3g>~aM)`7l6qqRICe_:o/QgcV}X26-MFUo]j;8)#d,UNE0|');
-define('AUTH_SALT',        'b;74/|Hx~V(ZW/8ZOGT3`T@;iQ$FkHVZ!*uP9_9g-+_W-98B;MR #n@iLMB7wN]Z');
-define('SECURE_AUTH_SALT', 'Uw~hrrO`~5OTIoBC81+!g_6=6V}x1^cl1%[HQAZV,_7dU{TrBwALDOCfmh+/ YG,');
-define('LOGGED_IN_SALT',   'RB=!0?&}c`/3t+?g0jVy5k<!:xd[-fGW(Hs9!|~%|-=MNOG$hum1j+0M-[!@Ig=|');
-define('NONCE_SALT',       ',&y;sN,WTTX2+@WOL ^qQk*OAv1r-vegp=]-itctm.kLh+<#:<ubI8h+uqG_E_bV');
+define('AUTH_KEY',         'APKx3/})vhxd1X-@*$Vn]]pj(S-4vII&Wd]o~30Vzn -dV:m|:+i[6+XBO&_?C|n');
+define('SECURE_AUTH_KEY',  ',2yLbn!h!Yvq4.cu3-!p8t!SK3hAfR2Z_9g-ZKs<mKmiPPz-VRi6FdQ|flDJ__RF');
+define('LOGGED_IN_KEY',    '.;m0=w~+aVU+EotmJj4:MY*|B^y-p8HQRA*^DpG!&l$V@Uxa?AP>uhaeJ`Z{z3`}');
+define('NONCE_KEY',        '|B(adzEs+98<yF4?Y||g+l))R8L9=G*MU_WvCEJ<@`~<x1OWw[W@%prYt%|tcaTW');
+define('AUTH_SALT',        'yNGwN`)D`mZi]y-?/~*R@m<yTv~QRYq7Vy.V6e!:Fu@v6yoK7Zg/?v5oy1r-+J3-');
+define('SECURE_AUTH_SALT', '9VpQ6/su.]OuD)Nwg~_={ICif-Mf{-?Z(%6h1DESLBt[k&LGDfnt144!l|JyFiu{');
+define('LOGGED_IN_SALT',   '@Cc~AJk*l7ss[F-OoWW-IK#n(B#mLZ`SHSVdt?oa!`{d]FloTlSTr:))2A99uG 8');
+define('NONCE_SALT',       'tt 6|{R-oJVu+CC2+FLv`[Ug0:`U?xP-U(L?d79hqkLv_rPSHo{;^Gc{]*apX)bl');
 
 /**#@-*/
 
@@ -87,7 +88,7 @@ define( 'WP_DEBUG', true );
 
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', __DIR__ . '/' );
+	define( 'ABSPATH', dirname(__FILE__) . '/' );
 }
 
 /** Sets up WordPress vars and included files. */
