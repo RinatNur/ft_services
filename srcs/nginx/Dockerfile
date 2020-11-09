@@ -1,18 +1,15 @@
-FROM alpine:latest
+FROM alpine
 
-RUN apk update upgrade	
-RUN	apk add nginx openssl openssh
+RUN apk update && apk upgrade
+RUN apk add nginx openssl openrc openssh supervisor
+RUN mkdir -p run/nginx
 
-COPY ./srcs/nginx_localhost /etc/nginx/conf.d/default.conf
-
-RUN mkdir /etc/nginx/ssl	
-RUN	openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/your_domain.key\
-	-out /etc/nginx/ssl/my.crt -subj "/C=RU/ST=Moscow/L=Moscow/O=21school/OU=jheat/CN=localhost"
-
-
-COPY ./srcs/start.sh ./
-RUN chmod +x ./start.sh
-RUN mkdir -p /run/nginx
+COPY ./srcs/default /etc/nginx/conf.d/deafult.conf
+COPY ./srcs/start.sh /
+COPY ./srcs/supervisor.conf /etc/supervisord.conf
+RUN chmod +rw /etc/supervisord.conf &&  printf "rootroot\nrootroot\n" | adduser hmiso
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -subj '/C=RF/ST=MSK/L=SCH/O=21/CN=hmiso' -keyout /etc/ssl/certs/nginx.key -out /etc/ssl/certs/nginx.crt
+RUN chmod +x start.sh
 
 EXPOSE 80 443
-ENTRYPOINT [ "sh", "/start.sh" ]
+CMD sh start.sh

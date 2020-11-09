@@ -1,0 +1,4 @@
+CREATE DATABASE wordpress;
+CREATE USER 'jheat'@'%' IDENTIFIED BY 'root';
+GRANT ALL PRIVILEGES ON wordpress.* TO 'jheat'@'%';
+FLUSH PRIVILEGES;
