@@ -14,7 +14,8 @@ RUN mkdir -p run/nginx
 COPY ./srcs/nginx.conf /etc/nginx/
 COPY ./srcs/start.sh .
 COPY ./srcs/supervisor.conf /etc/supervisord.conf
-RUN chmod +rw /etc/supervisord.conf &&  printf "rootroot\nrootroot\n" | adduser jheat
+RUN chmod +rw /etc/supervisord.conf
+RUN printf "root\nroot\n" | adduser jheat
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -subj '/C=RF/ST=MSK/L=SCH/O=21/CN=jheat' -keyout /etc/ssl/certs/nginx.key -out /etc/ssl/certs/nginx.crt
 RUN chmod +x start.sh
 
