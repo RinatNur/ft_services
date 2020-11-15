@@ -43,29 +43,13 @@ stringData:
   INFLUXDB_USER: root
   INFLUXDB_PASSWORD: root
 ---
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: cip-telegraf
-# spec:
-#   selector:
-#     app: telegraf
 apiVersion: v1
 kind: Service
 metadata:
   name: cip-telegraf
-  labels:
-    app: telegraf
-  annotations:
-    metallb.universe.tf/allow-shared-ip: wp
 spec:
-  externalTrafficPolicy: Cluster
-  type: LoadBalancer
-  loadBalancerIP: 192.168.99.101
-  ports:
-    - port: 8086
-      name: cip-telegraf
-      targetPort: 8086
+  selector:
+    app: telegraf
 ---
 apiVersion: apps/v1
 kind: Deployment
